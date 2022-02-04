@@ -27,13 +27,19 @@
       return selectionFirstLetter + selectionRest;
     }
 
-    function checkSelectionValue(selection) {
-
+    function roundTie() {
+      alert("It's a tie! Have a rematch.")
+      playerSelection = "paPer";
+      computerSelection = computerPlay();
+      playRound(playerSelection, computerSelection);
     }
 
-    function playRound(playerSelection, computerSelection) {
-
-    }
+    
+/*     function playRound(playerSelection, computerSelection) {
+      if (playerSelection === computerSelection){
+        roundTie();
+      }
+    } */
 
     let playerSelection = "RoCk";
     let computerSelection = computerPlay();
