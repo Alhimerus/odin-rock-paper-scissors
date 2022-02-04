@@ -11,15 +11,34 @@
     function computerPlay() {
       let computerSelection;
       let randomNumber = Math.random();
-      if(randomNumber<=1/3){
+      if (randomNumber <= 1 / 3) {
         computerSelection = "Scissors";
-      } else if (randomNumber<=2/3){
+      } else if (randomNumber <= 2 / 3) {
         computerSelection = "Rock";
       } else {
         computerSelection = "Paper";
       }
       return computerSelection;
     }
+
+    function standardizeSelection(selection) {
+      selectionFirstLetter = (selection.slice(0, 1)).toUpperCase();
+      selectionRest = (selection.slice(1)).toLowerCase();
+      return selectionFirstLetter + selectionRest;
+    }
+
+    function checkSelectionValue(selection) {
+
+    }
+
+    function playRound(playerSelection, computerSelection) {
+
+    }
+
+    let playerSelection = "RoCk";
+    let computerSelection = computerPlay();
+    console.log(standardizeSelection(playerSelection));
+
   </script>
 </body>
 
