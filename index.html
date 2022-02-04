@@ -18,6 +18,7 @@
       } else {
         computerSelection = "Paper";
       }
+      console.log(computerSelection);
       return computerSelection;
     }
 
@@ -31,19 +32,24 @@
       alert("It's a tie! Have a rematch.")
       playerSelection = "paPer";
       computerSelection = computerPlay();
-      playRound(playerSelection, computerSelection);
+      return playRound(playerSelection, computerSelection);
     }
 
-    
-/*     function playRound(playerSelection, computerSelection) {
-      if (playerSelection === computerSelection){
-        roundTie();
+
+    function playRound(playerSelection, computerSelection) {
+      playerSelection = standardizeSelection(playerSelection);
+      if (playerSelection === computerSelection) {
+        return roundTie();
+      } else if ((playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
+      } else {
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
       }
-    } */
+    }
 
     let playerSelection = "RoCk";
     let computerSelection = computerPlay();
-    console.log(standardizeSelection(playerSelection));
+    console.log(playRound(playerSelection, computerSelection));
 
   </script>
 </body>
