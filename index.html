@@ -29,25 +29,9 @@
       return computerSelection;
     }
 
-    function standardizeSelection(selection) {
-      selectionFirstLetter = (selection.slice(0, 1)).toUpperCase();
-      selectionRest = (selection.slice(1)).toLowerCase();
-      return selectionFirstLetter + selectionRest;
-    }
-
-    function roundRedo() {
-      playerSelection = standardizeSelection(prompt("What will you play?"));
-      computerSelection = computerPlay();
-      return playRound(playerSelection, computerSelection);
-    }
-
     function playRound(playerSelection, computerSelection = computerPlay()) {
       if (playerSelection === computerSelection) {
-        alert("It's a tie! Have a rematch.")
-        return roundRedo();
-      } else if (playerSelection !== "Paper" && playerSelection !== "Scissors" && playerSelection !== "Rock") {
-        alert("Wrong input! You have to choose rock, paper or scissors!")
-        return roundRedo();
+        console.log("It's a tie! Have a rematch.")
       } else if ((playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
         console.log(`You win this round! ${playerSelection} beats ${computerSelection}`)
         return true;
