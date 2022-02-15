@@ -41,7 +41,7 @@
       return playRound(playerSelection, computerSelection);
     }
 
-    function playRound(playerSelection, computerSelection) {
+    function playRound(playerSelection, computerSelection = computerPlay()) {
       if (playerSelection === computerSelection) {
         alert("It's a tie! Have a rematch.")
         return roundRedo();
@@ -56,6 +56,13 @@
         return false;
       }
     }
+
+    const buttonRock = document.querySelector(".rock");
+    buttonRock.addEventListener("click", () => { playRound("Rock") });
+    const buttonPaper = document.querySelector(".paper");
+    buttonPaper.addEventListener("click", () => { playRound("Paper") });
+    const buttonScissors = document.querySelector(".scissors");
+    buttonScissors.addEventListener("click", () => { playRound("Scissors") });
 
   </script>
 </body>
