@@ -8,13 +8,35 @@
 
 <body>
 
+  <div class="scores">
+    <div>Player's score:</div>
+    <div id="player">0</div>
+    <div>Computer's score:</div>
+    <div id="computer">0</div>
+  </div>
+
   <div class="buttons">
     <button class="rock">Rock</button>
     <button class="paper">Paper</button>
     <button class="scissors">Scissors</button>
   </div>
 
+  <div id="results">Choose what you want to play!</div>
+
   <script>
+
+    let scorePlayer = 0;
+    let scoreComputer = 0;
+
+    const buttonRock = document.querySelector(".rock");
+    buttonRock.addEventListener("click", () => { playRound("Rock"); });
+    const buttonPaper = document.querySelector(".paper");
+    buttonPaper.addEventListener("click", () => { playRound("Paper"); });
+    const buttonScissors = document.querySelector(".scissors");
+    buttonScissors.addEventListener("click", () => { playRound("Scissors"); });
+    const results = document.getElementById("results");
+    const playerScore = document.getElementById("player");
+    const computerScore = document.getElementById("computer");
 
     function computerPlay() {
       let computerSelection;
@@ -29,26 +51,37 @@
       return computerSelection;
     }
 
+    function clear() {
+      scorePlayer = 0;
+      scoreComputer = 0;
+      playerScore.textContent = scorePlayer;
+      computerScore.textContent = scoreComputer;
+      results.textContent = "Choose what you want to play!";
+    }
+
     function playRound(playerSelection, computerSelection = computerPlay()) {
       if (playerSelection === computerSelection) {
-        console.log("It's a tie! Have a rematch.")
+        results.textContent = "It's a tie! Have a rematch.";
       } else if ((playerSelection === "Paper" && computerSelection === "Rock") || (playerSelection === "Rock" && computerSelection === "Scissors") || (playerSelection === "Scissors" && computerSelection === "Paper")) {
-        console.log(`You win this round! ${playerSelection} beats ${computerSelection}`)
-        return true;
+        results.textContent = `You win this round! ${playerSelection} beats ${computerSelection}`;
+        scorePlayer++;
       } else {
-        console.log(`You lose this round! ${computerSelection} beats ${playerSelection}`)
-        return false;
+        results.textContent = `You lose this round! ${computerSelection} beats ${playerSelection}`;
+        scoreComputer++;
+      }
+      playerScore.textContent = scorePlayer;
+      computerScore.textContent = scoreComputer;
+      if (scorePlayer === 5) {
+        alert("You won the game!");
+        clear();
+      } else if (scoreComputer === 5) {
+        alert("You lost the game!")
+        clear();
       }
     }
 
-    const buttonRock = document.querySelector(".rock");
-    buttonRock.addEventListener("click", () => { playRound("Rock") });
-    const buttonPaper = document.querySelector(".paper");
-    buttonPaper.addEventListener("click", () => { playRound("Paper") });
-    const buttonScissors = document.querySelector(".scissors");
-    buttonScissors.addEventListener("click", () => { playRound("Scissors") });
-
   </script>
+
 </body>
 
 </html>
