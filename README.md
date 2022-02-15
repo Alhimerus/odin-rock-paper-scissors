@@ -1,3 +1,3 @@
 # odin-rock-paper-scissors
 
-A simple "Rock Paper Scissors" game played in the browser console.
+A simple "Rock Paper Scissors" game made using JavaScript.
