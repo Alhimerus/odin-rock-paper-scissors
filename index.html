@@ -7,7 +7,15 @@
 </head>
 
 <body>
+
+  <div class="buttons">
+    <button class="rock">Rock</button>
+    <button class="paper">Paper</button>
+    <button class="scissors">Scissors</button>
+  </div>
+
   <script>
+
     function computerPlay() {
       let computerSelection;
       let randomNumber = Math.random();
@@ -33,7 +41,6 @@
       return playRound(playerSelection, computerSelection);
     }
 
-
     function playRound(playerSelection, computerSelection) {
       if (playerSelection === computerSelection) {
         alert("It's a tie! Have a rematch.")
@@ -49,29 +56,6 @@
         return false;
       }
     }
-
-    function game() {
-      console.log("Let's start the game!")
-      let playerWinCount = 0;
-      let computerWinCount = 0;
-      for (let i = 1; i <= 5; i++) {
-        let playerSelection = standardizeSelection(prompt("What will you play?"));
-        let computerSelection = computerPlay();
-        if (playRound(playerSelection, computerSelection) === true) {
-          playerWinCount++;
-        }
-        else {
-          computerWinCount++;
-        }
-      }
-      if (playerWinCount > computerWinCount) {
-        console.log(`You won the game with ${playerWinCount} wins and ${5 - playerWinCount} loses!`)
-      } else {
-        console.log(`The computer won the game with ${computerWinCount} wins and ${5 - computerWinCount} loses!`)
-      }
-    }
-
-    game();
 
   </script>
 </body>
